@@ -15,7 +15,11 @@ pipeline {
             }
         } 
 
-
+        stage( 'stage Name - 3') {
+            steps {
+              sh "echo I am executing stage-3"
+            }
+        } 
      }
      
      
