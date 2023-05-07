@@ -18,7 +18,17 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
-     stages { 
+    tools {
+       maven 'maven-3.9.0' 
+    }
+    
+    stages { 
+
+        stage('Testing mvn commands') {
+            steps {
+                sh "mvn --version"
+            }
+        }
         
         stage( 'stage Name - 1') {
             steps {
@@ -35,7 +45,7 @@ pipeline {
         stage( 'stage Name - 3') {
              environment {
                    ENV_URL = "staging.learning.com"
-     }
+              }
 
             steps {
               sh '''
@@ -44,7 +54,7 @@ pipeline {
               echo printing multiple lines with a single usage of sh command
               echo Printing the environment variable $ENV_URL
               '''
-            }
+              }
         } 
      }
      
