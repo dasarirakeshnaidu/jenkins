@@ -20,11 +20,16 @@ pipeline {
         } 
 
         stage( 'stage Name - 3') {
+             environment {
+                   ENV_URL = "staging.learning.com"
+     }
+
             steps {
               sh '''
               echo I am using Pipeline syntax help
               echo demo to show multiple lines
               echo printing multiple lines with a single usage of sh command
+              echo Printing the environment variable $ENV_URL
               '''
             }
         } 
